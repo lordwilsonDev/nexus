@@ -4,10 +4,9 @@ NEXUS Engine Connector for MAS (Multi-Agent System)
 Bridges the Gateway to Yin (Forensics) and Yang (Synthesis).
 """
 
-import sys
 import subprocess
+import sys
 from pathlib import Path
-from typing import Dict, Any, List, Optional
 
 MAS_PATH = Path.home() / "pure-python-mas"
 

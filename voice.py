@@ -6,18 +6,17 @@ Includes wake word detection and continuous listening.
 """
 
 import os
-import sys
-import time
 import queue
-import tempfile
+import sys
 import threading
-from typing import Optional, Callable
+import time
 from dataclasses import dataclass
+from typing import Any, Callable, Optional
 
 # Lazy imports to handle missing dependencies gracefully
-_whisper = None
-_sounddevice = None
-_numpy = None
+_whisper: Any = None
+_sounddevice: Any = None
+_numpy: Any = None
 
 
 def _lazy_imports():
@@ -25,9 +24,9 @@ def _lazy_imports():
     global _whisper, _sounddevice, _numpy
     if _whisper is None:
         try:
-            import whisper
-            import sounddevice as sd
             import numpy as np
+            import sounddevice as sd
+            import whisper
             _whisper = whisper
             _sounddevice = sd
             _numpy = np
@@ -56,7 +55,7 @@ class VoiceEngine:
     
     def __init__(self, config: Optional[VoiceConfig] = None):
         self.config = config or VoiceConfig()
-        self.model = None
+        self.model: Any = None
         self.is_listening = False
         self._audio_queue: queue.Queue = queue.Queue()
         self._listen_thread: Optional[threading.Thread] = None

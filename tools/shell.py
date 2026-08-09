@@ -6,10 +6,8 @@ Sandboxed shell command execution.
 
 import os
 import subprocess
-import shlex
-from typing import Dict, Optional, List
 from dataclasses import dataclass
-
+from typing import List, Optional
 
 # Commands that are always blocked
 BLOCKED_COMMANDS = [

@@ -7,8 +7,6 @@ Enhanced terminal experience with colors, panels, and live updates.
 
 import os
 import sys
-from typing import Optional
-from datetime import datetime
 
 # Add nexus to path
 NEXUS_PATH = os.path.dirname(os.path.abspath(__file__))
@@ -16,27 +14,26 @@ if NEXUS_PATH not in sys.path:
     sys.path.insert(0, NEXUS_PATH)
 
 try:
-    from rich.console import Console
-    from rich.panel import Panel
-    from rich.markdown import Markdown
-    from rich.table import Table
-    from rich.live import Live
-    from rich.spinner import Spinner
-    from rich.text import Text
     from prompt_toolkit import prompt
-    from prompt_toolkit.history import FileHistory
     from prompt_toolkit.auto_suggest import AutoSuggestFromHistory
+    from prompt_toolkit.history import FileHistory
+    from rich.console import Console
+    from rich.live import Live  # noqa: F401  (availability probe)
+    from rich.markdown import Markdown
+    from rich.panel import Panel
+    from rich.spinner import Spinner  # noqa: F401  (availability probe)
+    from rich.table import Table
+    from rich.text import Text  # noqa: F401  (availability probe)
 except ImportError:
     print("Rich/prompt-toolkit not installed. Run: pip install rich prompt-toolkit")
     sys.exit(1)
 
 from config import CONFIG
-from router import get_router, Intent
-from memory import get_memory
-from engines.ollama import get_ollama
 from engines.core import get_core
+from engines.ollama import get_ollama
+from memory import get_memory
+from router import Intent, get_router
 from tools.shell import get_shell
-
 
 console = Console()
 
@@ -152,14 +149,6 @@ class NexusCLI:
         engine = self.router.route(intent_result)
         
         # Display intent
-        intent_color = {
-            Intent.CODE: "blue",
-            Intent.BUILD: "magenta",
-            Intent.SYSTEM: "cyan",
-            Intent.COMMAND: "yellow",
-            Intent.RESEARCH: "green"
-        }.get(intent_result.intent, "white")
-        
         console.print(
             f"[dim]Intent: {intent_result.intent.value} ({intent_result.confidence:.0%}) → {engine}[/dim]"
         )

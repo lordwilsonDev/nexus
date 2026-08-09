@@ -9,3 +9,4 @@ artifacts/hygiene/n0*_*.json
 # Runtime vector-DB state — never commit
 /data/
 
+.coverage

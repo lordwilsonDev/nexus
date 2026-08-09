@@ -10,9 +10,8 @@ Connects to Python engines in ~/core/:
 """
 
 import sys
-import os
 from pathlib import Path
-from typing import Dict, Any, Optional
+from typing import Any, Dict, Optional
 
 # Add core to path
 CORE_PATH = Path.home() / "core"
@@ -82,7 +81,6 @@ class CoreEngines:
     def run_discovery(self, target: str = ".") -> Dict[str, Any]:
         """Run discovery agent on a target path."""
         try:
-            import discovery_agent
             # This would call the discovery agent
             return {"success": True, "message": "Discovery agent not fully integrated yet"}
         except Exception as e:
@@ -91,7 +89,6 @@ class CoreEngines:
     def run_healing(self) -> Dict[str, Any]:
         """Run healing agent."""
         try:
-            import healing_agent
             return {"success": True, "message": "Healing agent not fully integrated yet"}
         except Exception as e:
             return {"success": False, "error": str(e)}

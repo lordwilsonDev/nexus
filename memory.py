@@ -6,13 +6,12 @@ Stores conversations, context, and episodic memory.
 """
 
 import os
-import json
+from dataclasses import asdict, dataclass
 from datetime import datetime
-from typing import List, Dict, Optional, Any
-from dataclasses import dataclass, asdict
+from typing import Any, Dict, List, Optional
 
 # Lazy import ChromaDB
-_chroma = None
+_chroma: Any = None
 
 
 def _lazy_import_chroma():
@@ -53,8 +52,8 @@ class MemoryLayer:
     ):
         self.persist_dir = persist_dir
         self.collection_name = collection_name
-        self.client = None
-        self.collection = None
+        self.client: Any = None
+        self.collection: Any = None
         self._session_memory: List[Dict] = []
         
     def initialize(self) -> bool:
@@ -235,7 +234,7 @@ if __name__ == "__main__":
         
         # Search
         results = memory.search("deploy production")
-        print(f"\nSearch results for 'deploy production':")
+        print("\nSearch results for 'deploy production':")
         for r in results:
             print(f"  - {r['content'][:50]}...")
         

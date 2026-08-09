@@ -5,11 +5,10 @@ NEXUS - Universal Agent Gateway
 The single point of consciousness for all AI systems.
 """
 
+import argparse
 import os
 import sys
-import argparse
-from typing import Optional
-from datetime import datetime
+from typing import Any, Optional
 
 # Add nexus to path
 NEXUS_PATH = os.path.dirname(os.path.abspath(__file__))
@@ -17,13 +16,13 @@ if NEXUS_PATH not in sys.path:
     sys.path.insert(0, NEXUS_PATH)
 
 from config import CONFIG, NexusConfig
-from router import IntentRouter, Intent, get_router
-from memory import MemoryLayer, get_memory
-from engines.ollama import get_ollama
-from engines.core import get_core
-from engines.trinity import get_trinity
 from engines.axion import get_axion
+from engines.core import get_core
 from engines.mas import get_mas
+from engines.ollama import get_ollama
+from engines.trinity import get_trinity
+from memory import get_memory
+from router import Intent, get_router
 from tools.shell import get_shell
 
 
@@ -42,7 +41,7 @@ class NexusGateway:
         self.mas = get_mas()
         self.core = get_core()
         self.shell = get_shell()
-        self.voice_engine = None
+        self.voice_engine: Any = None
         self.voice_enabled = False
         
     def initialize(self) -> bool:
@@ -234,12 +233,12 @@ If you can do something, offer to do it. If uncertain, say so.
 Recent context:
 {context if context else 'No prior context'}"""
 
-            response = self.ollama.chat(
-                prompt=user_input,
-                model=model,
-                system=system_prompt
-            )
-            return response.content
+        response = self.ollama.chat(
+            prompt=user_input,
+            model=model,
+            system=system_prompt
+        )
+        return response.content
     
     def listen_voice(self) -> Optional[str]:
         """Get voice input."""

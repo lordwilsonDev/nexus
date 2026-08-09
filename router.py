@@ -6,9 +6,9 @@ Uses Ollama for intelligent classification with fallback to keywords.
 """
 
 import re
-from typing import Dict, List, Tuple, Optional
 from dataclasses import dataclass
 from enum import Enum
+from typing import Dict, Optional, Tuple
 
 from engines.ollama import get_ollama
 
@@ -141,13 +141,15 @@ class IntentRouter:
                 scores[intent] = score / len(patterns)
         
         if scores:
-            best_intent = max(scores, key=scores.get)
+            best_intent = max(scores, key=lambda k: scores[k])
             return best_intent, scores[best_intent]
         
         return Intent.CHAT, 0.0
     
     def _llm_classify(self, text: str) -> Tuple[Intent, float]:
         """Use LLM for intent classification."""
+        if self.ollama is None:
+            return Intent.CHAT, 0.0
         system_prompt = """You are an intent classifier. Given user input, respond with ONLY one word - the intent category:
 - CODE: code generation, debugging, programming
 - BUILD: creating new projects, apps, systems

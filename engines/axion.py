@@ -5,10 +5,8 @@ Bridges the Gateway to the Axiomatic Oracle and Safety Kernel.
 """
 
 import sys
-import os
-import json
 from pathlib import Path
-from typing import Dict, Any, List, Optional
+from typing import Any, Dict
 
 # Add axion to path
 AXION_PATH = Path.home() / "sparse_axion_rag"
@@ -55,7 +53,7 @@ class AxionEngine:
     def get_hardware_bridge(self):
         """Connect to the MoIE-OS bridge."""
         try:
-            import httpx
+            import httpx  # noqa: F401  (availability probe)
             # The sovereign_bridge.py typically runs on port 8000
             return "http://localhost:8000"
         except ImportError:

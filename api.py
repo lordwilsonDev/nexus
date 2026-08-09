@@ -7,8 +7,8 @@ FastAPI server for external access to NEXUS.
 
 import os
 import sys
-from typing import Optional
 from datetime import datetime
+from typing import Optional
 
 # Add nexus to path
 NEXUS_PATH = os.path.dirname(os.path.abspath(__file__))
@@ -16,21 +16,20 @@ if NEXUS_PATH not in sys.path:
     sys.path.insert(0, NEXUS_PATH)
 
 try:
+    import uvicorn
     from fastapi import FastAPI, HTTPException
     from fastapi.middleware.cors import CORSMiddleware
     from pydantic import BaseModel
-    import uvicorn
 except ImportError:
     print("FastAPI not installed. Run: pip install fastapi uvicorn")
     sys.exit(1)
 
 from config import CONFIG
-from router import get_router
-from memory import get_memory
-from engines.ollama import get_ollama
 from engines.core import get_core
+from engines.ollama import get_ollama
+from memory import get_memory
+from router import get_router
 from tools.shell import get_shell
-
 
 # FastAPI app
 app = FastAPI(

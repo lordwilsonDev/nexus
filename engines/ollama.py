@@ -5,9 +5,10 @@ Handles all LLM interactions through local Ollama.
 """
 
 import json
-import httpx
-from typing import Optional, Dict, List, Generator
 from dataclasses import dataclass
+from typing import Generator, List, Optional
+
+import httpx
 
 
 @dataclass
