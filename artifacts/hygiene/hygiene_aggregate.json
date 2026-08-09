@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-08-09T16:16:40.759899+00:00",
+  "environment": {
+    "repo": "/Users/lordwilson/nexus",
+    "python": "/opt/homebrew/Caskroom/miniforge/base/bin/python",
+    "experiments": 3
+  },
+  "results": [
+    {
+      "experiment": "n01_config_load",
+      "verdict": "pass",
+      "artifact": "/Users/lordwilson/nexus/artifacts/hygiene/n01_config_load_20260809T161640Z.json",
+      "returncode": 0
+    },
+    {
+      "experiment": "n02_intent_router",
+      "verdict": "pass",
+      "artifact": "/Users/lordwilson/nexus/artifacts/hygiene/n02_intent_router_20260809T161640Z.json",
+      "returncode": 0
+    },
+    {
+      "experiment": "n03_import_surface",
+      "verdict": "pass",
+      "artifact": "/Users/lordwilson/nexus/artifacts/hygiene/n03_import_surface_20260809T161640Z.json",
+      "returncode": 0
+    }
+  ],
+  "factory_verdict": "pass",
+  "factory_gate": {
+    "any_fail": false,
+    "any_unknown": false,
+    "all_pass": true
+  }
+}

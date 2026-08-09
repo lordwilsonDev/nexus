@@ -1,0 +1,45 @@
+# NEXUS Configuration
+# Sovereign AI Gateway - Axiom Inversion Edition
+
+name: NEXUS
+version: 1.1.0
+
+ollama:
+  host: http://localhost:11434
+  default_model: axiom-inversion:latest  # Primary brain
+  models:
+    general: axiom-inversion:latest      # Values-embedded reasoning
+    code: qwen2.5-coder:0.5b             # Fast code generation
+    reasoning: axiom-inversion:latest    # Deep thinking
+    fast: qwen2.5-coder:0.5b             # Quick classification
+    guardian: vjepa-guardian:latest       # Safety layer
+
+voice:
+  enabled: true
+  wake_word: hey nexus
+  whisper_model: base
+  language: en
+  tts_enabled: true
+
+memory:
+  persist_dir: data/chromadb
+  collection_name: nexus_memory
+  max_results: 10
+
+engines:
+  trinity: true
+  axion: true
+  mas: true
+  motia_url: http://localhost:3000
+  core_path: ~/core
+  meta_path: ~/Meta
+  sparse_axion_path: ~/sparse_axion_rag
+  mas_path: ~/pure-python-mas
+  trinity_path: ~/.trinity
+
+# Axiom Inversion core values (reference only - embedded in model)
+axioms:
+  love: "Connection, care, empathy. Maximize mutual understanding."
+  abundance: "Create more value than consumed. Positive-sum thinking."
+  safety: "Protect, prevent harm. Prefer reversible actions."
+  growth: "Continuous improvement while maintaining values."

@@ -1,0 +1,94 @@
+{
+  "PROJECT_MAP": {
+    "project_id": "ad79e883055f",
+    "name": "nexus",
+    "root": "/Users/lordwilson/nexus",
+    "discovered_at": "2026-08-09T16:16:38.488437+00:00"
+  },
+  "BASELINE": {
+    "project": {
+      "project_id": "ad79e883055f",
+      "name": "nexus",
+      "root": "/Users/lordwilson/nexus",
+      "discovered_at": "2026-08-09T16:16:38.488437+00:00"
+    },
+    "tests": "n/a",
+    "git": "n/a",
+    "dependencies": "n/a",
+    "claims": []
+  },
+  "VERIFICATION": {
+    "pytest": {
+      "passed": true,
+      "summary": "4 passed in 0.93s",
+      "duration_s": 1
+    },
+    "live_auth": {
+      "verified": null,
+      "detail": "scoped out \u2014 project declares live_auth:false in suite.json",
+      "correct_secret": null,
+      "wrong_secret": null,
+      "missing_secret": null
+    }
+  },
+  "SUITE_CONFIG": {
+    "source": "<project>/scripts/hygiene/suite.json",
+    "experiments": [
+      "n01_config_load",
+      "n02_intent_router",
+      "n03_import_surface"
+    ],
+    "live_auth": false
+  },
+  "EVIDENCE_INDEX": {
+    "claims_verified": 3,
+    "artifacts": [
+      "/Users/lordwilson/nexus/artifacts/hygiene/n01_config_load_20260809T161640Z.json",
+      "/Users/lordwilson/nexus/artifacts/hygiene/n02_intent_router_20260809T161640Z.json",
+      "/Users/lordwilson/nexus/artifacts/hygiene/n03_import_surface_20260809T161640Z.json"
+    ],
+    "verified_at": "2026-08-09T16:16:40.767428+00:00",
+    "member_results": [
+      {
+        "experiment": "n01_config_load",
+        "skill": "configuration-hygiene",
+        "verdict": "pass",
+        "artifact": "/Users/lordwilson/nexus/artifacts/hygiene/n01_config_load_20260809T161640Z.json",
+        "violations": []
+      },
+      {
+        "experiment": "n02_intent_router",
+        "skill": "determinism",
+        "verdict": "pass",
+        "artifact": "/Users/lordwilson/nexus/artifacts/hygiene/n02_intent_router_20260809T161640Z.json",
+        "violations": []
+      },
+      {
+        "experiment": "n03_import_surface",
+        "skill": "installation-hygiene",
+        "verdict": "pass",
+        "artifact": "/Users/lordwilson/nexus/artifacts/hygiene/n03_import_surface_20260809T161640Z.json",
+        "violations": []
+      }
+    ]
+  },
+  "RELEASE_VERDICT": {
+    "critical_requirements_tested": true,
+    "critical_invariants_verified": false,
+    "critical_failures_resolved": true,
+    "security_boundaries_tested": false,
+    "state_recovery_tested": false,
+    "important_failure_modes_have_experiments": true,
+    "claims_have_evidence": true,
+    "regression_passed": true,
+    "reproducibility_documented": true,
+    "live_auth_verified": false,
+    "unresolved_unknowns_disclosed": true,
+    "release_verdict": "PASS",
+    "unresolved_unknowns": [],
+    "notes": [
+      "live_auth scoped out: project suite.json declares live_auth:false (no server to probe)"
+    ],
+    "artifact_schema_violations": 0
+  }
+}

@@ -1,0 +1,31 @@
+#!/bin/bash
+# NEXUS Launcher - Axiom Inversion Edition
+
+cd ~/nexus
+
+echo "🌀 NEXUS - Axiom Inversion Edition"
+echo "   λ LOVE  α ABUNDANCE  σ SAFETY  γ GROWTH"
+echo ""
+
+case "${1:-cli}" in
+    cli)
+        python3 cli.py
+        ;;
+    voice)
+        python3 gateway.py --voice
+        ;;
+    api)
+        echo "Starting API server on http://localhost:8000"
+        python3 api.py
+        ;;
+    simple)
+        python3 gateway.py
+        ;;
+    *)
+        echo "Usage: nexus [cli|voice|api|simple]"
+        echo "  cli    - Rich terminal interface (default)"
+        echo "  voice  - Voice-enabled mode"
+        echo "  api    - HTTP API server"
+        echo "  simple - Basic interactive mode"
+        ;;
+esac

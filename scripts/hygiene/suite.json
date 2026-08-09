@@ -1,0 +1,18 @@
+{
+  "experiments": {
+    "n01_config_load": {
+      "skill": "configuration-hygiene",
+      "runner": "n01_config_load_runner.py"
+    },
+    "n02_intent_router": {
+      "skill": "determinism",
+      "runner": "n02_intent_router_runner.py"
+    },
+    "n03_import_surface": {
+      "skill": "installation-hygiene",
+      "runner": "n03_import_surface_runner.py"
+    }
+  },
+  "live_auth": false,
+  "note": "NEXUS has no x-mcp-secret auth gate and no server required for these experiments — the factory's live-auth probe is scoped out (not an unresolved unknown)."
+}

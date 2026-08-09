@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+
+# Per-run hygiene experiment artifacts (ephemeral); keep aggregate + gate
+artifacts/hygiene/n0*_*.json
+
+# Runtime vector-DB state — never commit
+/data/
+
