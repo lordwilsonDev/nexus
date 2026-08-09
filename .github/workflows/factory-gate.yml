@@ -1,0 +1,43 @@
+name: factory-gate
+
+# Engineering-hygiene factory gate for NEXUS.
+# Every push/PR to main re-runs the pytest suite (4 tests) and the three
+# offline hygiene experiments. Any non-PASS leg fails the job, which blocks
+# the push/merge.
+#
+# CI installs what the tests/hygiene runners import: yaml + ollama (config /
+# engines), fastapi + uvicorn (api) and rich + prompt-toolkit (cli) for the
+# import-surface contract, plus pytest. The heavy voice/whisper deps in
+# requirements.txt are runtime-only and are deliberately NOT installed in CI.
+# Live-auth is scoped out (serverless gateway) — consistent with suite.json.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  gate:
+    name: factory-gate (pytest + hygiene)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install (minimal — config/router + test deps only)
+        run: |
+          pip install --upgrade pip
+          pip install pytest pyyaml ollama fastapi uvicorn rich prompt-toolkit
+
+      - name: Regression suite (pytest)
+        run: pytest -q
+
+      - name: Hygiene suite (offline experiments)
+        env:
+          MSB_REPO: ${{ github.workspace }}
+        run: python scripts/hygiene/hygiene_runner.py --all
