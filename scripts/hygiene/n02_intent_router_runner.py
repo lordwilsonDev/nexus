@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 """N02 Intent-router hygiene — IntentRouter(use_llm=False) is deterministic.
 
 The router is the entry point for every NEXUS interaction. With use_llm=False
@@ -16,13 +17,14 @@ import datetime as dt
 import json
 import os
 import subprocess
+import sys
 from pathlib import Path
 from typing import Any
 
 REPO = Path(os.environ.get("MSB_REPO", Path(__file__).resolve().parents[2]))
 EVIDENCE_DIR = REPO / "artifacts" / "hygiene"
 EVIDENCE_DIR.mkdir(parents=True, exist_ok=True)
-PY = os.environ.get("MSB_PYTHON", "/opt/homebrew/Caskroom/miniforge/base/bin/python")
+PY = os.environ.get("MSB_PYTHON", sys.executable)
 
 
 def new_record() -> dict[str, Any]:

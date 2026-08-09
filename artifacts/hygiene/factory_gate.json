@@ -3,14 +3,14 @@
     "project_id": "ad79e883055f",
     "name": "nexus",
     "root": "/Users/lordwilson/nexus",
-    "discovered_at": "2026-08-09T17:19:04.065471+00:00"
+    "discovered_at": "2026-08-09T17:52:24.989567+00:00"
   },
   "BASELINE": {
     "project": {
       "project_id": "ad79e883055f",
       "name": "nexus",
       "root": "/Users/lordwilson/nexus",
-      "discovered_at": "2026-08-09T17:19:04.065471+00:00"
+      "discovered_at": "2026-08-09T17:52:24.989567+00:00"
     },
     "tests": "n/a",
     "git": "n/a",
@@ -20,7 +20,7 @@
   "VERIFICATION": {
     "pytest": {
       "passed": true,
-      "summary": "4 passed in 0.91s",
+      "summary": "4 passed in 0.98s",
       "duration_s": 1
     },
     "live_auth": {
@@ -43,31 +43,31 @@
   "EVIDENCE_INDEX": {
     "claims_verified": 3,
     "artifacts": [
-      "/Users/lordwilson/nexus/artifacts/hygiene/n01_config_load_20260809T171905Z.json",
-      "/Users/lordwilson/nexus/artifacts/hygiene/n02_intent_router_20260809T171905Z.json",
-      "/Users/lordwilson/nexus/artifacts/hygiene/n03_import_surface_20260809T171906Z.json"
+      "/Users/lordwilson/nexus/artifacts/hygiene/n01_config_load_20260809T175226Z.json",
+      "/Users/lordwilson/nexus/artifacts/hygiene/n02_intent_router_20260809T175226Z.json",
+      "/Users/lordwilson/nexus/artifacts/hygiene/n03_import_surface_20260809T175227Z.json"
     ],
-    "verified_at": "2026-08-09T17:19:06.289551+00:00",
+    "verified_at": "2026-08-09T17:52:27.372296+00:00",
     "member_results": [
       {
         "experiment": "n01_config_load",
         "skill": "configuration-hygiene",
         "verdict": "pass",
-        "artifact": "/Users/lordwilson/nexus/artifacts/hygiene/n01_config_load_20260809T171905Z.json",
+        "artifact": "/Users/lordwilson/nexus/artifacts/hygiene/n01_config_load_20260809T175226Z.json",
         "violations": []
       },
       {
         "experiment": "n02_intent_router",
         "skill": "determinism",
         "verdict": "pass",
-        "artifact": "/Users/lordwilson/nexus/artifacts/hygiene/n02_intent_router_20260809T171905Z.json",
+        "artifact": "/Users/lordwilson/nexus/artifacts/hygiene/n02_intent_router_20260809T175226Z.json",
         "violations": []
       },
       {
         "experiment": "n03_import_surface",
         "skill": "installation-hygiene",
         "verdict": "pass",
-        "artifact": "/Users/lordwilson/nexus/artifacts/hygiene/n03_import_surface_20260809T171906Z.json",
+        "artifact": "/Users/lordwilson/nexus/artifacts/hygiene/n03_import_surface_20260809T175227Z.json",
         "violations": []
       }
     ]
