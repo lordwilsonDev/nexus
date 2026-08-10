@@ -10,3 +10,6 @@ artifacts/hygiene/n0*_*.json
 /data/
 
 .coverage
+
+# mutmut build artifacts — evidence is the mutation_score.json snapshot, not the mutant tree
+mutants/
