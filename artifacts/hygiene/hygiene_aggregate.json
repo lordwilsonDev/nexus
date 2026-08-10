@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-10T05:34:18.164397+00:00",
+  "timestamp": "2026-08-10T06:23:53.303392+00:00",
   "environment": {
     "repo": "/Users/lordwilson/nexus",
     "python": "/opt/homebrew/Caskroom/miniforge/base/bin/python",
@@ -9,19 +9,19 @@
     {
       "experiment": "n01_config_load",
       "verdict": "pass",
-      "artifact": "/Users/lordwilson/nexus/artifacts/hygiene/n01_config_load_20260810T053417Z.json",
+      "artifact": "/Users/lordwilson/nexus/artifacts/hygiene/n01_config_load_20260810T062352Z.json",
       "returncode": 0
     },
     {
       "experiment": "n02_intent_router",
       "verdict": "pass",
-      "artifact": "/Users/lordwilson/nexus/artifacts/hygiene/n02_intent_router_20260810T053417Z.json",
+      "artifact": "/Users/lordwilson/nexus/artifacts/hygiene/n02_intent_router_20260810T062352Z.json",
       "returncode": 0
     },
     {
       "experiment": "n03_import_surface",
       "verdict": "pass",
-      "artifact": "/Users/lordwilson/nexus/artifacts/hygiene/n03_import_surface_20260810T053418Z.json",
+      "artifact": "/Users/lordwilson/nexus/artifacts/hygiene/n03_import_surface_20260810T062353Z.json",
       "returncode": 0
     }
   ],
