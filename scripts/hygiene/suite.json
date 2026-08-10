@@ -14,5 +14,8 @@
     }
   },
   "live_auth": false,
-  "note": "NEXUS has no x-mcp-secret auth gate and no server required for these experiments — the factory's live-auth probe is scoped out (not an unresolved unknown)."
+  "coverage_floor": 0.50,
+  "coverage_source": "config,gateway,memory,router,voice,api,cli,engines,tools",
+  "note": "NEXUS has no x-mcp-secret auth gate and no server required for these experiments — the factory's live-auth probe is scoped out (not an unresolved unknown). Coverage floor on the nexus package >= 50% — requires the in-process unit suite (tests/test_nexus_units.py); the subprocess-driven hygiene tests cannot be measured by pytest-cov."
+
 }
