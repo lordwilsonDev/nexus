@@ -3,14 +3,14 @@
     "project_id": "ad79e883055f",
     "name": "nexus",
     "root": "/Users/lordwilson/nexus",
-    "discovered_at": "2026-08-09T17:52:24.989567+00:00"
+    "discovered_at": "2026-08-10T05:34:13.824896+00:00"
   },
   "BASELINE": {
     "project": {
       "project_id": "ad79e883055f",
       "name": "nexus",
       "root": "/Users/lordwilson/nexus",
-      "discovered_at": "2026-08-09T17:52:24.989567+00:00"
+      "discovered_at": "2026-08-10T05:34:13.824896+00:00"
     },
     "tests": "n/a",
     "git": "n/a",
@@ -20,8 +20,15 @@
   "VERIFICATION": {
     "pytest": {
       "passed": true,
-      "summary": "4 passed in 0.98s",
-      "duration_s": 1
+      "summary": "44 passed, 2 warnings in 2.67s",
+      "duration_s": 3
+    },
+    "coverage": {
+      "configured": true,
+      "source": "config,gateway,memory,router,voice,api,cli,engines,tools",
+      "floor_pct": 50.0,
+      "pct": 61.0,
+      "met": true
     },
     "live_auth": {
       "verified": null,
@@ -38,36 +45,37 @@
       "n02_intent_router",
       "n03_import_surface"
     ],
-    "live_auth": false
+    "live_auth": false,
+    "pytest_target": "tests/"
   },
   "EVIDENCE_INDEX": {
     "claims_verified": 3,
     "artifacts": [
-      "/Users/lordwilson/nexus/artifacts/hygiene/n01_config_load_20260809T175226Z.json",
-      "/Users/lordwilson/nexus/artifacts/hygiene/n02_intent_router_20260809T175226Z.json",
-      "/Users/lordwilson/nexus/artifacts/hygiene/n03_import_surface_20260809T175227Z.json"
+      "/Users/lordwilson/nexus/artifacts/hygiene/n01_config_load_20260810T053417Z.json",
+      "/Users/lordwilson/nexus/artifacts/hygiene/n02_intent_router_20260810T053417Z.json",
+      "/Users/lordwilson/nexus/artifacts/hygiene/n03_import_surface_20260810T053418Z.json"
     ],
-    "verified_at": "2026-08-09T17:52:27.372296+00:00",
+    "verified_at": "2026-08-10T05:34:18.173416+00:00",
     "member_results": [
       {
         "experiment": "n01_config_load",
         "skill": "configuration-hygiene",
         "verdict": "pass",
-        "artifact": "/Users/lordwilson/nexus/artifacts/hygiene/n01_config_load_20260809T175226Z.json",
+        "artifact": "/Users/lordwilson/nexus/artifacts/hygiene/n01_config_load_20260810T053417Z.json",
         "violations": []
       },
       {
         "experiment": "n02_intent_router",
         "skill": "determinism",
         "verdict": "pass",
-        "artifact": "/Users/lordwilson/nexus/artifacts/hygiene/n02_intent_router_20260809T175226Z.json",
+        "artifact": "/Users/lordwilson/nexus/artifacts/hygiene/n02_intent_router_20260810T053417Z.json",
         "violations": []
       },
       {
         "experiment": "n03_import_surface",
         "skill": "installation-hygiene",
         "verdict": "pass",
-        "artifact": "/Users/lordwilson/nexus/artifacts/hygiene/n03_import_surface_20260809T175227Z.json",
+        "artifact": "/Users/lordwilson/nexus/artifacts/hygiene/n03_import_surface_20260810T053418Z.json",
         "violations": []
       }
     ]
@@ -86,6 +94,7 @@
     "unresolved_unknowns_disclosed": true,
     "release_verdict": "PASS",
     "unresolved_unknowns": [],
+    "coverage_floor_met": true,
     "notes": [
       "live_auth scoped out: project suite.json declares live_auth:false (no server to probe)"
     ],
