@@ -22,12 +22,10 @@ sys.path.insert(0, str(REPO))
 
 import gateway as gateway_mod  # noqa: E402
 import memory as memory_mod  # noqa: E402
-import router as router_mod  # noqa: E402
 import voice as voice_mod  # noqa: E402
 from config import CONFIG, load_config  # noqa: E402
 from router import Intent, IntentResult, IntentRouter  # noqa: E402
 from tools.shell import ShellTool  # noqa: E402
-
 
 # ── fake in-memory chroma (deterministic, no ML deps) ────────────────────────
 
